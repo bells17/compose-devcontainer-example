@@ -1,0 +1,9 @@
+
+services:
+  app:
+    image: 'mcr.microsoft.com/devcontainers/go:1-1.21-bullseye'
+    command: sleep infinity
+    volumes:
+      - .:/workspace
+  redis:
+    image: 'redislabs/redismod'
