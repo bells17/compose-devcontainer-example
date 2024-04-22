@@ -1,0 +1,6 @@
+👋 Welcome to a sample project for a dev container with docker compose!
+     Works in GitHub Codespaces, VS Code, or in docker using the devcontainer cli
+
+- start server: make run
+- build image: make image
+- connect to redis server: redis-cli -h redis ping

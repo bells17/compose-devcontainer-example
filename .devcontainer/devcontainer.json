@@ -7,6 +7,8 @@
   "dockerComposeFile": "../compose.yaml",
   "service": "app",
   "workspaceFolder": "/workspace",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"moby": true,
@@ -14,17 +16,19 @@
 			"installDockerBuildx": true,
 			"version": "20.10",
 			"dockerDashComposeVersion": "v2"
-		}
+		},
+		"./local-features/redis-cli": {}
 	},
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	"forwardPorts": [
+		3000
+	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y redis-tools && redis-cli --version",
+
+	"onCreateCommand": "sudo .devcontainer/setup.sh"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
